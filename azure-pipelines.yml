@@ -1,0 +1,29 @@
+trigger:
+    - main
+
+jobs:
+    -
+        job: Run_Test_Config
+
+        strategy:
+            maxParallel: 1
+            matrix:
+                linux:
+                    imageName: 'ubuntu-latest'
+                mac:
+                    imageName: 'macOS-latest'
+                windows:
+                    imageName: 'windows-latest'
+      
+        pool: 
+            vmImage: $(imageName)
+        steps:
+            -
+                template: templates/run-test-config.yml
+                parameters:
+                    clientID: client:dai:agent:integration
+                    serverURL: https://foomunle-aub-12401-6.dai.webperfdev.com
+                    testConfigID: ca4d845c-614e-49a0-9071-59811782abd2
+                    clientSecret: e9c15662-8c1b-472e-930d-aa0b11726093
+                    gitlabAccessToken: glpat-yCM3Y2u-NobKzxZL_oro
+                    dryRun: true
