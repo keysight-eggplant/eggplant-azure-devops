@@ -21,9 +21,14 @@ jobs:
             -
                 template: templates/run-test-config.yml
                 parameters:
+                    dryRun: false
                     clientID: client:dai:agent:integration
                     serverURL: https://foomunle-aub-12401-6.dai.webperfdev.com
                     testConfigID: 3d41a425-cd7a-4c93-9741-5dd1c007222c
+                    # alternatively, one could set a pipeline secret in Azure Pipeline Editor
+                    # and refer to it like below.
+                    # clientSecret: $(DAI_CLIENT_SECRET)
                     clientSecret: e9c15662-8c1b-472e-930d-aa0b11726093
-                    gitlabAccessToken: glpat-yCM3Y2u-NobKzxZL_oro
-                    dryRun: false
+          
+                    # for development usage only
+                    gitlabAccessToken: $(GITLAB_ACCESS_TOKEN)

@@ -50,12 +50,14 @@ steps:
         pwsh: |
             if ("${{ parameters.gitlabAccessToken }}" -ne ''){
                 # Engineering URL download
-                # only for engineering purpose. release version of CLI exe requires a public URL instead.
-                curl --header "PRIVATE-TOKEN: ${{ parameters.gitlabAccessToken }}" "https://gitlab.com/api/v4/projects/22402994/packages/generic/6.1-ci-cd/0.0.0/$(env:CLI_FILENAME)" --output $(env:CLI_FILENAME)
+                $DOWNLOADURL = "https://gitlab.com/api/v4/projects/22402994/packages/generic/6.1-ci-cd/0.0.0/$(env:CLI_FILENAME)"
+                echo "Downloading $DOWNLOADURL..."
+                curl --header "PRIVATE-TOKEN: ${{ parameters.gitlabAccessToken }}" "$DOWNLOADURL" --output $(env:CLI_FILENAME)
             } else {
                 # Public URL download
-                # curl -L https://github.com/foomunleong/test_1/blob/main/cli/$(env:CLI_FILENAME)?raw=true --output $(env:CLI_FILENAME)
-                echo "We should download from public URL here instead."
+                $DOWNLOADURL = "https://downloads.eggplantsoftware.com/downloads/EggplantRunner/$(env:CLI_FILENAME)"
+                echo "Downloading $DOWNLOADURL..."
+                curl -L $DOWNLOADURL --output $(env:CLI_FILENAME)
             }
             
             echo "Downloaded $(env:CLI_FILENAME)."
@@ -86,6 +88,7 @@ steps:
               $dryRun = "--dry-run"
             }
             
+            echo 'Executing: ./$(env:CLI_FILENAME) "${{ parameters.serverURL }}" "${{ parameters.testConfigID }}" --client-id="${{ parameters.clientID }}" --request-timeout=${{ parameters.requestTimeout }} --request-retries=${{ parameters.requestRetries }} --backoff-factor=${{ parameters.backoffFactor }} --poll-interval=${{ parameters.pollInterval }} --log-level="${{ parameters.logLevel }}"' $CACertPath $dryRun
             ./$(env:CLI_FILENAME) "${{ parameters.serverURL }}" "${{ parameters.testConfigID }}" --client-id="${{ parameters.clientID }}" --request-timeout=${{ parameters.requestTimeout }} --request-retries=${{ parameters.requestRetries }} --backoff-factor=${{ parameters.backoffFactor }} --poll-interval=${{ parameters.pollInterval }} --log-level="${{ parameters.logLevel }}" $CACertPath $dryRun
         env:
             CLI_FILENAME: $(Setup_environment_variables.CLI_FILENAME)
