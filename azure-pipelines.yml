@@ -6,7 +6,7 @@ resources:
         -
             repository: test_1
             type: git
-            name: foomunleong
+            name: foomunleong/test_1
 jobs:
     -
         job: Run_Test_Config
