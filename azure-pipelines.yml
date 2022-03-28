@@ -4,7 +4,7 @@ trigger:
 resources:
     repositories:
         -
-            repository: templates
+            repository: eggplant-azure-devops
             type: github
             name: foomunleong/test_1
             endpoint: github.com_foomunleong
