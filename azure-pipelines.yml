@@ -25,10 +25,10 @@ jobs:
         pool: 
             vmImage: $(imageName)
         steps:
+            - checkout: self
             - checkout: anotherRepo
-            - script: dir $(Agent.BuildDirectory)
             -
-                template: templates/run-test-config.yml
+                template: templates/run-test-config.yml@anotherRepo
                 parameters:
                     dryRun: true
                     clientID: client:dai:agent:integration
