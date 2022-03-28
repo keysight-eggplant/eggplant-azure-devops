@@ -3,9 +3,9 @@ trigger:
         
 resources:
   repositories:
-    - repository: anotherRepo
+    - repository: sourceRepo
       type: github
-      name: foomunleong/test_1
+      name: TestPlant/eggplant-azure-devops
       endpoint: github.com_foomunleong
 jobs:
   - job: Run_Test_Config
@@ -23,8 +23,8 @@ jobs:
       vmImage: $(imageName)
     steps:
       - checkout: self
-      - checkout: anotherRepo
-      - template: templates/run-test-config.yml@anotherRepo
+      - checkout: sourceRepo
+      - template: templates/run-test-config.yml@sourceRepo
         parameters:
           dryRun: true
           clientID: client:dai:agent:integration
