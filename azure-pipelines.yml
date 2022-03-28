@@ -5,8 +5,9 @@ resources:
     repositories:
         -
             repository: templates
-            type: git
-            name: foomunleong/test_1
+            type: github
+            name: foomunleong/test_1/templates
+            endpoint: github.com_foomunleong
 jobs:
     -
         job: Run_Test_Config
@@ -25,7 +26,7 @@ jobs:
             vmImage: $(imageName)
         steps:
             -
-                template: templates/run-test-config.yml
+                template: run-test-config.yml
                 parameters:
                     dryRun: true
                     clientID: client:dai:agent:integration
