@@ -5,7 +5,7 @@ resources:
   repositories:
     - repository: sourceRepo
       type: github
-      name: foomunleong/test_1
+      name: TestPlant/eggplant-azure-devops
       endpoint: github.com_foomunleong
 jobs:
   - job: Run_Test_Config
