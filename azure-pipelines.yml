@@ -4,7 +4,7 @@ trigger:
 resources:
     repositories:
         -
-            repository: eggplant-azure-devops
+            repository: mygithubrepo
             type: github
             name: foomunleong/test_1
             endpoint: github.com_foomunleong
@@ -26,7 +26,9 @@ jobs:
             vmImage: $(imageName)
         steps:
             -
-                template: templates/run-test-config.yml
+                checkout: mygithubrepo
+            -
+                template: mygithubrepo/templates/run-test-config.yml
                 parameters:
                     dryRun: true
                     clientID: client:dai:agent:integration
