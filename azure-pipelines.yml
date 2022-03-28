@@ -6,7 +6,7 @@ resources:
         -
             repository: templates
             type: github
-            name: foomunleong/test_1
+            name: foomunleong/test_1.git
             endpoint: foomunleong
 jobs:
     -
