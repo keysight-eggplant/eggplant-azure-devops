@@ -26,6 +26,7 @@ jobs:
             vmImage: $(imageName)
         steps:
             - checkout: anotherRepo
+            - script: dir $(Build.SourcesDirectory)
             -
                 template: templates/run-test-config.yml
                 parameters:
