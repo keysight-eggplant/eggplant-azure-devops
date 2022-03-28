@@ -6,8 +6,8 @@ resources:
         -
             repository: templates
             type: github
-            name: test_1
-            endpoint: foomunleong
+            name: foomunleong/test_1
+            endpoint: github.com_foomunleong
 jobs:
     -
         job: Run_Test_Config
