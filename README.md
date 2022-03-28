@@ -111,7 +111,7 @@ jobs:
 **Optional** The path to an alternative Certificate Authority pem file<br />
 
 ### `dryRun`
-**Optional** Dry Run mode validates the parameters without requiring a connection to a DAI server.<br />
+**Optional** Dry Run mode only validates the parameters without executing a test config run. It does not require a connection to the DAI server.<br />
 **Default:** `False`.
 
 
