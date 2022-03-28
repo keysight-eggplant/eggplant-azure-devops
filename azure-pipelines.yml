@@ -26,7 +26,7 @@ jobs:
             vmImage: $(imageName)
         steps:
             -
-                template: run-test-config.yml
+                template: run-test-config.yml@templates
                 parameters:
                     dryRun: true
                     clientID: client:dai:agent:integration
