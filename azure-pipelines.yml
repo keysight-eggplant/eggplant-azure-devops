@@ -4,10 +4,10 @@ trigger:
 resources:
     repositories:
         -
-            repository: mygithubrepo
+            repository: test_1
             type: github
             name: foomunleong/test_1
-            endpoint: github.com_foomunleong
+            endpoint: foomunleong
 jobs:
     -
         job: Run_Test_Config
@@ -26,7 +26,7 @@ jobs:
             vmImage: $(imageName)
         steps:
             -
-                template: /templates/run-test-config.yml
+                template: templates/run-test-config.yml
                 parameters:
                     dryRun: true
                     clientID: client:dai:agent:integration
