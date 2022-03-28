@@ -7,7 +7,7 @@ resources:
             repository: test_1
             type: github
             name: foomunleong/test_1
-            endpoint: foomunleong
+            endpoint: github.com_foomunleong
 jobs:
     -
         job: Run_Test_Config
