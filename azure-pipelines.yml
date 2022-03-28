@@ -4,8 +4,8 @@ trigger:
 resources:
     repositories:
         -
-            repository: test_1
-            type: git
+            repository: templates
+            type: github
             name: foomunleong/test_1
 jobs:
     -
