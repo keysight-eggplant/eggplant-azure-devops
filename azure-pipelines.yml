@@ -11,13 +11,13 @@ jobs:
   - job: Run_Test_Config
     strategy:
       maxParallel: 1
-        matrix:
-          linux:
-            imageName: 'ubuntu-latest'
-          mac:
-            imageName: 'macOS-latest'
-          windows:
-            imageName: 'windows-latest'
+      matrix:
+        linux:
+          imageName: 'ubuntu-latest'
+        mac:
+          imageName: 'macOS-latest'
+        windows:
+          imageName: 'windows-latest'
       
     pool: 
       vmImage: $(imageName)
