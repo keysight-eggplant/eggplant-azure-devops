@@ -4,7 +4,7 @@ trigger:
 resources:
     repositories:
         -
-            repository: test_1
+            repository: anotherRepo
             type: github
             name: foomunleong/test_1
             endpoint: github.com_foomunleong
@@ -25,6 +25,7 @@ jobs:
         pool: 
             vmImage: $(imageName)
         steps:
+            - checkout: anotherRepo
             -
                 template: templates/run-test-config.yml
                 parameters:
