@@ -5,7 +5,7 @@ resources:
   repositories:
     - repository: sourceRepo
       type: github
-      name: TestPlant/eggplant-azure-devops
+      name: foomunleong/test_1
       endpoint: github.com_foomunleong
 jobs:
   - job: Run_Test_Config
@@ -22,7 +22,6 @@ jobs:
     pool: 
       vmImage: $(imageName)
     steps:
-      - checkout: self
       - checkout: sourceRepo
       - template: templates/run-test-config.yml@sourceRepo
         parameters:
