@@ -27,8 +27,9 @@ jobs:
         steps:
             -
                 checkout: mygithubrepo
+                path: 's'
             -
-                template: templates/run-test-config.yml
+                template: s/templates/run-test-config.yml
                 parameters:
                     dryRun: true
                     clientID: client:dai:agent:integration
