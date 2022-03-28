@@ -22,7 +22,6 @@ jobs:
     pool: 
       vmImage: $(imageName)
     steps:
-      - checkout: sourceRepo
       - template: templates/run-test-config.yml@sourceRepo
         parameters:
           dryRun: true
