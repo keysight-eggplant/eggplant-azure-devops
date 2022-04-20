@@ -4,9 +4,7 @@ Eggplant Runner currently provides "Run Test Config" as its main action.
 
 ## Using run-test-config.yml in your pipeline
 
-In order to use the Eggplant Runner with Azure DevOps, you need to add either one of these to your Azure Pipelines .yml file:
-
-1. Referencing our `run-test-config` directly from your pipeline .yml:<br />
+In order to use the Eggplant Runner with Azure DevOps, you need to add this to your Azure Pipelines .yml file:<br />
 Reading: https://docs.microsoft.com/en-us/azure/devops/pipelines/process/templates?view=azure-devops#use-other-repositories
 
 ```yaml
@@ -34,36 +32,6 @@ jobs:
       vmImage: $(imageName)
     steps:
       - template: templates/run-test-config.yml@sourceRepo
-        parameters:
-          serverURL: # Required. Details below
-          testConfigID: # Required. Details below
-          clientSecret: # Required. Details below
-```
-
-**OR**
-
-2. Cloning `run-test-config.yml` in your own repository and referencing to it.<br />
-This would also allow you to modify your own copy of the action script to your liking/needs:
-
-```yaml
-trigger:
-  - main
-  
-jobs:
-  - job: Run_Test_Config
-    strategy:
-      maxParallel: 1
-      matrix:
-        linux:
-          imageName: 'ubuntu-latest'
-        mac:
-          imageName: 'macOS-latest'
-        windows:
-          imageName: 'windows-latest'
-    pool: 
-      vmImage: $(imageName)
-    steps:
-      - template: templates/run-test-config.yml
         parameters:
           serverURL: # Required. Details below
           testConfigID: # Required. Details below
@@ -128,6 +96,6 @@ Hence, we can only do unilateral testing.
 3. Eggplant Runner supports these OS: Linux, Windows, MacOS.
 
 
-4. In order to reference our template `run-test-config.yml` script directly, you need to create a GitHub Service Connection.<br />
+4. In order to reference our template `run-test-config.yml` script, you need to create a GitHub Service Connection.<br />
 In Azure DevOps page: `Project settings > Pipelines > Service connections > New service connection > GitHub`.<br />
 Then, populate `resources: repositories: endpoint` with the newly created `Service connection name`.
