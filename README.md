@@ -4,9 +4,10 @@ Eggplant Runner currently provides "Run Test Config" as its main action.
 
 ## Using run-test-config.yml in your pipeline
 
-In order to use the Eggplant Runner with Azure DevOps, you need to add either one of these to your Azure Pipelines .yml:
+In order to use the Eggplant Runner with Azure DevOps, you need to add either one of these to your Azure Pipelines .yml file:
 
-1. Referencing our `run-test-config` directly from your pipeline .yml:
+1. Referencing our `run-test-config` directly from your pipeline .yml:<br />
+Reading: https://docs.microsoft.com/en-us/azure/devops/pipelines/process/templates?view=azure-devops#use-other-repositories
 
 ```yaml
 trigger:
@@ -111,7 +112,7 @@ jobs:
 **Optional** The path to an alternative Certificate Authority pem file<br />
 
 ### `dryRun`
-**Optional** Dry Run mode validates the parameters without requiring a connection to a DAI server.<br />
+**Optional** Dry Run mode only validates the parameters without executing a test config run. It does not require a connection to the DAI server.<br />
 **Default:** `False`.
 
 
