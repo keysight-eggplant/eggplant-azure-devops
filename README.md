@@ -1,5 +1,12 @@
-# Eggplant Runner in CI/CD with Azure DevOps
+<img src="https://www.eggplantsoftware.com/hubfs/Branding/Keysight-Eggplant-Logo_RGB_full-color.svg" width="300px"/>
 
+# Eggplant DAI Runner with Azure DevOps
+
+## Introduction
+
+The Eggplant DAI Runner is an [Eggplant DAI](https://www.eggplantsoftware.com/digital-automation-intelligence) integration tool that enables the functionality to launch DAI tests from within a Azure DevOps pipeline. You can use it to continuously test your application's [model-based approach to testing](https://docs.eggplantsoftware.com/docs/dai-using-eggplant-dai/).  For more information about Eggplant, visit https://www.eggplantsoftware.com.
+
+The core integration of the **Eggplant DAI Runner** are with [**DAI Test Configuration**](https://docs.eggplantsoftware.com/docs/dai-test-configuration/). **Eggplant DAI Runner** basically will communicate with the API services provided by **Eggplant DAI** to perform test configuration execution.
 Eggplant Runner currently provides "Run Test Config" as its main action.
 
 ## Using run-test-config.yml in your pipeline
@@ -46,11 +53,17 @@ jobs:
 ### `testConfigID`
 **Required** The ID of the test config that you want to run, e.g. `09c48b7d-fc5b-481d-af80-fcffad5d9587`.
 
+Test configuration ID can be obtain by go to test config > look for a particular test config > test config id can be obtain from url.
+![image](https://user-images.githubusercontent.com/101400930/165948106-3bcac6b6-194a-468c-84ab-b1ea619d90de.png)
+
 ### `clientSecret`
 **Required** The client secret to use to authenticate with the DAI server, e.g. `e9c15662-8c1b-472e-930d-aa0b11726093`.<br />
              Alternatively, you could set a pipeline secret and refer to it like below:<br />
              `clientSecret: $(DAI_CLIENT_SECRET)`.<br />
              Reading: https://docs.microsoft.com/en-us/azure/devops/pipelines/process/variables?view=azure-devops&tabs=yaml%2Cbatch#secret-variables
+
+The **DAI Client Secret** can be obtain by go to http://kc-localhost:8000/auth > client > search for client:dai:agent:integration > credential
+![image](https://user-images.githubusercontent.com/101400930/165948740-2dae17a6-2d06-4682-8acc-e8e1e48abc94.png)
              
 ### `clientID`
 **Optional** The client ID to use to authenticate with the DAI server.<br />
