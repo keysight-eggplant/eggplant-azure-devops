@@ -1,6 +1,6 @@
 <img src="https://www.eggplantsoftware.com/hubfs/Branding/Keysight-Eggplant-Logo_RGB_full-color.svg" width="300px"/>
 
-# Eggplant DAI Runner with Azure DevOps
+# Eggplant Runner with Azure DevOps
 
 ## Introduction
 
